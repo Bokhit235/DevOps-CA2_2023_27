@@ -43,7 +43,7 @@ export const adminListReports = createServerFn({ method: "GET" })
  */
 export const getReportPrivileged = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .validator(z.object({ id: z.string().uuid() }))
+  .inputValidator((data) => z.object({ id: z.string().uuid() }).parse(data))
   .handler(async ({ data, context }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: report, error } = await supabaseAdmin
@@ -61,7 +61,7 @@ export const getReportPrivileged = createServerFn({ method: "POST" })
 
 export const getReportImages = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .validator(z.object({ id: z.string().uuid() }))
+  .inputValidator((data) => z.object({ id: z.string().uuid() }).parse(data))
   .handler(async ({ data, context }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: report } = await supabaseAdmin
@@ -79,7 +79,7 @@ export const getReportImages = createServerFn({ method: "POST" })
 
 export const getReportHistory = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .validator(z.object({ id: z.string().uuid() }))
+  .inputValidator((data) => z.object({ id: z.string().uuid() }).parse(data))
   .handler(async ({ data, context }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: report } = await supabaseAdmin
@@ -100,7 +100,7 @@ export const getReportHistory = createServerFn({ method: "POST" })
 
 export const signReportPhotos = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .validator(z.object({ paths: z.array(z.string()).max(100) }))
+  .inputValidator((data) => z.object({ paths: z.array(z.string()).max(100) }).parse(data))
   .handler(async ({ data, context }) => {
     if (data.paths.length === 0) return {} as Record<string, string>;
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");

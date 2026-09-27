@@ -32,18 +32,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setRoles([]);
         return;
       }
-      supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", userId)
-        .then(({ data }) => {
-          if (mounted) {
-            setRoles((data ?? []).map((r) => r.role as AppRole));
-          }
-        })
-        .catch(() => {
+      void (async () => {
+        try {
+          const { data } = await supabase
+            .from("user_roles")
+            .select("role")
+            .eq("user_id", userId);
+          if (mounted) setRoles((data ?? []).map((r) => r.role as AppRole));
+        } catch {
           if (mounted) setRoles([]);
-        });
+        }
+      })();
     };
 
     // Listen for auth state changes

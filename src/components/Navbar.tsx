@@ -18,10 +18,14 @@ export function Navbar() {
     if (!user) { setFullName(null); return; }
     const metaName = user.user_metadata?.full_name;
     if (metaName) setFullName(metaName);
-    supabase.from('profiles').select('full_name').eq('id', user.id).maybeSingle().then(({ data }) => {
-      if (!mounted) return;
-      if (data?.full_name) setFullName(data.full_name);
-    }).catch(() => {});
+    void (async () => {
+      try {
+        const { data } = await supabase.from('profiles').select('full_name').eq('id', user.id).maybeSingle();
+        if (mounted && data?.full_name) setFullName(data.full_name);
+      } catch {
+        // Keep the account metadata name when the profile is unavailable.
+      }
+    })();
     return () => { mounted = false; };
   }, [user]);
 
