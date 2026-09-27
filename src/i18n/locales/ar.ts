@@ -3,6 +3,7 @@ import type { Resources } from "./fr";
 export const ar: Resources = {
   common: {
     loading: "جارٍ التحميل…",
+    required: "مطلوب",
     save: "حفظ",
     cancel: "إلغاء",
     update: "تحديث",
@@ -73,6 +74,14 @@ export const ar: Resources = {
     welcomeToast: "مرحباً!",
     pwdTooShort: "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
     accountCreated: "تم إنشاء الحساب! يمكنك تسجيل الدخول.",
+    passwordMismatch: "كلمتا المرور غير متطابقتين.",
+    resetSent: "تم إرسال رسالة إعادة التعيين. تحقق من بريدك الإلكتروني.",
+    forgot: "نسيت كلمة المرور؟",
+    resetPasswordBtn: "إرسال رسالة إعادة التعيين",
+    confirmPassword: "تأكيد كلمة المرور",
+    confirmEmail: "يرجى تأكيد بريدك الإلكتروني قبل تسجيل الدخول.",
+    resetPassword: "إعادة تعيين كلمة المرور",
+    resetDone: "تم تحديث كلمة المرور. يمكنك تسجيل الدخول.",
   },
   map: {
     title: "خريطة البلاغات",
