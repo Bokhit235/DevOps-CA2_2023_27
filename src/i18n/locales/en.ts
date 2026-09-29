@@ -14,7 +14,6 @@ export const en = {
     optional: "(optional)",
     note: "Note (optional)",
   },
-
   nav: {
     map: "Map",
     reports: "Reports",
@@ -29,7 +28,6 @@ export const en = {
     tagline: "Citizen platform",
     menu: "Menu",
   },
-
   home: {
     badge: "Citizen platform of Chad",
     title1: "Let's build",
@@ -61,7 +59,6 @@ export const en = {
     join: "Join",
     footerTagline: "BATIR TCHAD — Let's build our nation together",
   },
-
   auth: {
     welcome: "Welcome to BATIR TCHAD",
     welcomeSub: "Report, track, transform your community.",
@@ -87,7 +84,6 @@ export const en = {
     resetPassword: "Reset password",
     resetDone: "Password updated. You can now sign in.",
   },
-
   map: {
     title: "Report map",
     countSuffix: "report(s) displayed",
@@ -99,16 +95,15 @@ export const en = {
     severity: "Severity",
     allSeverities: "All severities",
     province: "Province",
+    city: "City",
     allProvinces: "All provinces",
     legend: "Legend:",
   },
-
   list: {
     title: "Reports",
     subtitle: "Browse all community reports.",
     empty: "No reports found.",
   },
-
   detail: {
     authorityNote: "Authority note:",
     photos: "Photos",
@@ -122,7 +117,6 @@ export const en = {
     statusUpdated: "Status updated",
     chooseStatus: "Choose a status",
   },
-
   profile: {
     title: "My profile",
     info: "Information",
@@ -134,7 +128,6 @@ export const en = {
     createFirst: "Create my first report",
     saved: "Profile updated",
   },
-
   signaler: {
     title: "New report",
     subtitle:
@@ -167,42 +160,151 @@ export const en = {
     errTitleDesc: "Title and description are required",
     sent: "Report submitted! Thank you for your contribution.",
   },
-
   dashboard: {
-    title: "Dashboard",
-    subtitle: "Overview of reports across Chad.",
+    title: "Administrator Dashboard",
+    subtitle: "Global management of reports, users, and statistics for BATIR TCHAD platform.",
     restricted: "Restricted access",
     restrictedDesc:
       "This dashboard is reserved for authorities and administrators. Contact an administrator to request access.",
     backHome: "Back to home",
-    total: "Total",
-    critical: "Critical (red)",
+    total: "Total reports",
+    critical: "Urgent / Critical",
     inProgress: "In progress",
-    resolved: "Resolved",
-    topProvinces: "Top provinces",
-    byCategory: "By category",
-    noData: "No data",
+    resolved: "Resolved reports",
+    pending: "Pending review",
+    totalUsers: "Registered users",
+    topProvinces: "Breakdown by province",
+    byCategory: "Breakdown by category",
+    noData: "No data available",
     reportCol: "Report",
     catCol: "Category",
     placeCol: "Location",
-    severityCol: "Severity",
+    severityCol: "Priority",
     statusCol: "Status",
-    noReports: "No reports",
-  },
+    noReports: "No reports found",
+    recentActivity: "Recent activity",
+    recentActivitySub: "Latest reports published by citizens",
+    allPriorities: "All priorities",
+    allProvinces: "All provinces",
+    allCategories: "All categories",
+    allStatuses: "All statuses",
+    dateCol: "Date",
+    actionsCol: "Actions",
+    manage: "Manage",
+    refresh: "Refresh",
+    exportData: "Export",
+    tabs: {
+      overview: "Overview",
+      reports: "Reports",
+      users: "Users",
+      map: "Intervention Map",
+      stats: "Statistics",
+      alerts: "Notifications",
+      settings: "Settings",
+    },
+    users: {
 
+  title: "User Management",
+
+  userCol: "User",
+
+  contactCol: "Contact & Location",
+
+  roleCol: "Role",
+
+  statusCol: "Status",
+
+  active: "Active",
+
+  blocked: "Blocked",
+
+  reportsCol: "Reports",
+
+  dateCol: "Joined Date",
+
+  actionsCol: "Actions",
+
+  changeRole: "Change Role",
+
+  citizen: "Citizen",
+
+  authority: "Public Authority",
+
+  admin: "Administrator",
+
+  roleUpdated: "User role updated successfully",
+
+  modalTitle: "Modify User Role",
+
+  userLabel: "User",
+
+  newRoleLabel: "New User Role",
+
+  confirmRole: "Confirm Role",
+
+  updating: "Updating...",
+
+},
+    alerts: {
+      title: "Critical Alerts & Priority Reports",
+      desc: "Reports classified with critical priority (Red) requiring immediate intervention.",
+      empty: "No critical reports",
+      action: "Manage Incident",
+    },
+    statsSection: {
+      resolutionRate: "Resolution Rate",
+      criticalCount: "Critical Reports",
+      inProgressCount: "In Progress Reports",
+      officesCount: "Intervention Offices",
+      byStatusTitle: "Distribution by Status",
+      bySeverityTitle: "Distribution by Priority",
+    },
+    settingsSection: {
+      title: "Platform Settings",
+      desc: "Account preferences and display language",
+      accountInfo: "Active Administrator Account • BATIR TCHAD",
+      languageLabel: "Platform Language",
+      backendTitle: "Backend Infrastructure",
+      connected: "Connected to Supabase Production (Secured Database)",
+    },
+    withdrawn: {
+  badge: "Withdrawn by citizen",
+  message: "Report withdrawn by citizen",
+  date: "Withdrawn on {{date}}",
+},
+    modal: {
+      detailsTitle: "Report Details & Management",
+      reportId: "Report Identifier",
+      noDesc: "No description.",
+      photosTitle: "Incident Photos",
+      location: "Location",
+      priority: "Priority",
+      category: "Category",
+      createdAt: "Creation Date",
+      updateStatusTitle: "Update Report Status",
+      newStatusLabel: "New Status",
+      resolutionNoteLabel: "Resolution Note / Internal Comment",
+      resolutionNotePh: "Specify measures taken or status justification...",
+      saving: "Saving...",
+      saveChanges: "Save Changes",
+      cancel: "Cancel",
+    },
+    mapTitle: "Geolocated Incident Map of Chad",
+    mapPointsMapped: "Mapped Points",
+    mapCoordinates: "Coordinates",
+openGoogleMaps: "Open in Google Maps",
+  },
   notFound: {
     title: "Page not found",
     desc: "This page does not exist or has been moved.",
     back: "Back to home",
   },
-
   error: {
     title: "This page could not be loaded",
     desc: "An error occurred. Try again or return to the home page.",
     retry: "Try again",
     home: "Home",
   },
-
   categories: {
     route: "Road",
     pont: "Bridge",
@@ -212,7 +314,6 @@ export const en = {
     marche: "Market",
     autre: "Other",
   },
-
   statuses: {
     signale: "Reported",
     verifie: "Verified",
@@ -220,7 +321,6 @@ export const en = {
     resolu: "Resolved",
     rejete: "Rejected",
   },
-
   severities: {
     vert: "Low",
     jaune: "Moderate",

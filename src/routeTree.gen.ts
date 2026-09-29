@@ -9,19 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as CarteRouteImport } from './routes/carte'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CarteRouteImport } from './routes/carte'
+import { Route as AuthenticatedProfilRouteImport } from './routes/_authenticated/profil'
+import { Route as AuthenticatedSignalerRouteImport } from './routes/_authenticated/signaler'
+import { Route as AuthenticatedTableauDeBordRouteImport } from './routes/_authenticated/tableau-de-bord'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminMessagesRouteImport } from './routes/admin/messages'
+import { Route as AdminParametresRouteImport } from './routes/admin/parametres'
+import { Route as AdminSignalementsRouteImport } from './routes/admin/signalements'
+import { Route as AdminStatistiquesRouteImport } from './routes/admin/statistiques'
+import { Route as AdminUtilisateursRouteImport } from './routes/admin/utilisateurs'
 import { Route as SignalementsIndexRouteImport } from './routes/signalements.index'
 import { Route as SignalementsIdRouteImport } from './routes/signalements.$id'
-import { Route as AuthenticatedTableauDeBordRouteImport } from './routes/_authenticated/tableau-de-bord'
-import { Route as AuthenticatedSignalerRouteImport } from './routes/_authenticated/signaler'
-import { Route as AuthenticatedProfilRouteImport } from './routes/_authenticated/profil'
 
-const CarteRoute = CarteRouteImport.update({
-  id: '/carte',
-  path: '/carte',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -29,13 +39,55 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const CarteRoute = CarteRouteImport.update({
+  id: '/carte',
+  path: '/carte',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AuthenticatedProfilRoute = AuthenticatedProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSignalerRoute = AuthenticatedSignalerRouteImport.update({
+  id: '/signaler',
+  path: '/signaler',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTableauDeBordRoute =
+  AuthenticatedTableauDeBordRouteImport.update({
+    id: '/tableau-de-bord',
+    path: '/tableau-de-bord',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/admin/messages',
+  path: '/admin/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminParametresRoute = AdminParametresRouteImport.update({
+  id: '/admin/parametres',
+  path: '/admin/parametres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSignalementsRoute = AdminSignalementsRouteImport.update({
+  id: '/admin/signalements',
+  path: '/admin/signalements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStatistiquesRoute = AdminStatistiquesRouteImport.update({
+  id: '/admin/statistiques',
+  path: '/admin/statistiques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUtilisateursRoute = AdminUtilisateursRouteImport.update({
+  id: '/admin/utilisateurs',
+  path: '/admin/utilisateurs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignalementsIndexRoute = SignalementsIndexRouteImport.update({
@@ -48,22 +100,6 @@ const SignalementsIdRoute = SignalementsIdRouteImport.update({
   path: '/signalements/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedTableauDeBordRoute =
-  AuthenticatedTableauDeBordRouteImport.update({
-    id: '/tableau-de-bord',
-    path: '/tableau-de-bord',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedSignalerRoute = AuthenticatedSignalerRouteImport.update({
-  id: '/signaler',
-  path: '/signaler',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedProfilRoute = AuthenticatedProfilRouteImport.update({
-  id: '/profil',
-  path: '/profil',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -72,7 +108,13 @@ export interface FileRoutesByFullPath {
   '/profil': typeof AuthenticatedProfilRoute
   '/signaler': typeof AuthenticatedSignalerRoute
   '/tableau-de-bord': typeof AuthenticatedTableauDeBordRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/parametres': typeof AdminParametresRoute
+  '/admin/signalements': typeof AdminSignalementsRoute
+  '/admin/statistiques': typeof AdminStatistiquesRoute
+  '/admin/utilisateurs': typeof AdminUtilisateursRoute
   '/signalements/$id': typeof SignalementsIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/signalements/': typeof SignalementsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -82,7 +124,13 @@ export interface FileRoutesByTo {
   '/profil': typeof AuthenticatedProfilRoute
   '/signaler': typeof AuthenticatedSignalerRoute
   '/tableau-de-bord': typeof AuthenticatedTableauDeBordRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/parametres': typeof AdminParametresRoute
+  '/admin/signalements': typeof AdminSignalementsRoute
+  '/admin/statistiques': typeof AdminStatistiquesRoute
+  '/admin/utilisateurs': typeof AdminUtilisateursRoute
   '/signalements/$id': typeof SignalementsIdRoute
+  '/admin': typeof AdminIndexRoute
   '/signalements': typeof SignalementsIndexRoute
 }
 export interface FileRoutesById {
@@ -94,7 +142,13 @@ export interface FileRoutesById {
   '/_authenticated/profil': typeof AuthenticatedProfilRoute
   '/_authenticated/signaler': typeof AuthenticatedSignalerRoute
   '/_authenticated/tableau-de-bord': typeof AuthenticatedTableauDeBordRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/parametres': typeof AdminParametresRoute
+  '/admin/signalements': typeof AdminSignalementsRoute
+  '/admin/statistiques': typeof AdminStatistiquesRoute
+  '/admin/utilisateurs': typeof AdminUtilisateursRoute
   '/signalements/$id': typeof SignalementsIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/signalements/': typeof SignalementsIndexRoute
 }
 export interface FileRouteTypes {
@@ -106,7 +160,13 @@ export interface FileRouteTypes {
     | '/profil'
     | '/signaler'
     | '/tableau-de-bord'
+    | '/admin/messages'
+    | '/admin/parametres'
+    | '/admin/signalements'
+    | '/admin/statistiques'
+    | '/admin/utilisateurs'
     | '/signalements/$id'
+    | '/admin/'
     | '/signalements/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -116,7 +176,13 @@ export interface FileRouteTypes {
     | '/profil'
     | '/signaler'
     | '/tableau-de-bord'
+    | '/admin/messages'
+    | '/admin/parametres'
+    | '/admin/signalements'
+    | '/admin/statistiques'
+    | '/admin/utilisateurs'
     | '/signalements/$id'
+    | '/admin'
     | '/signalements'
   id:
     | '__root__'
@@ -127,7 +193,13 @@ export interface FileRouteTypes {
     | '/_authenticated/profil'
     | '/_authenticated/signaler'
     | '/_authenticated/tableau-de-bord'
+    | '/admin/messages'
+    | '/admin/parametres'
+    | '/admin/signalements'
+    | '/admin/statistiques'
+    | '/admin/utilisateurs'
     | '/signalements/$id'
+    | '/admin/'
     | '/signalements/'
   fileRoutesById: FileRoutesById
 }
@@ -136,24 +208,23 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   CarteRoute: typeof CarteRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
+  AdminParametresRoute: typeof AdminParametresRoute
+  AdminSignalementsRoute: typeof AdminSignalementsRoute
+  AdminStatistiquesRoute: typeof AdminStatistiquesRoute
+  AdminUtilisateursRoute: typeof AdminUtilisateursRoute
   SignalementsIdRoute: typeof SignalementsIdRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   SignalementsIndexRoute: typeof SignalementsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/carte': {
-      id: '/carte'
-      path: '/carte'
-      fullPath: '/carte'
-      preLoaderRoute: typeof CarteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -163,11 +234,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carte': {
+      id: '/carte'
+      path: '/carte'
+      fullPath: '/carte'
+      preLoaderRoute: typeof CarteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/profil': {
+      id: '/_authenticated/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof AuthenticatedProfilRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/signaler': {
+      id: '/_authenticated/signaler'
+      path: '/signaler'
+      fullPath: '/signaler'
+      preLoaderRoute: typeof AuthenticatedSignalerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tableau-de-bord': {
+      id: '/_authenticated/tableau-de-bord'
+      path: '/tableau-de-bord'
+      fullPath: '/tableau-de-bord'
+      preLoaderRoute: typeof AuthenticatedTableauDeBordRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/admin/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/parametres': {
+      id: '/admin/parametres'
+      path: '/admin/parametres'
+      fullPath: '/admin/parametres'
+      preLoaderRoute: typeof AdminParametresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/signalements': {
+      id: '/admin/signalements'
+      path: '/admin/signalements'
+      fullPath: '/admin/signalements'
+      preLoaderRoute: typeof AdminSignalementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/statistiques': {
+      id: '/admin/statistiques'
+      path: '/admin/statistiques'
+      fullPath: '/admin/statistiques'
+      preLoaderRoute: typeof AdminStatistiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/utilisateurs': {
+      id: '/admin/utilisateurs'
+      path: '/admin/utilisateurs'
+      fullPath: '/admin/utilisateurs'
+      preLoaderRoute: typeof AdminUtilisateursRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/signalements/': {
@@ -183,27 +324,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/signalements/$id'
       preLoaderRoute: typeof SignalementsIdRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/tableau-de-bord': {
-      id: '/_authenticated/tableau-de-bord'
-      path: '/tableau-de-bord'
-      fullPath: '/tableau-de-bord'
-      preLoaderRoute: typeof AuthenticatedTableauDeBordRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/signaler': {
-      id: '/_authenticated/signaler'
-      path: '/signaler'
-      fullPath: '/signaler'
-      preLoaderRoute: typeof AuthenticatedSignalerRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/profil': {
-      id: '/_authenticated/profil'
-      path: '/profil'
-      fullPath: '/profil'
-      preLoaderRoute: typeof AuthenticatedProfilRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
@@ -228,7 +348,13 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   CarteRoute: CarteRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
+  AdminParametresRoute: AdminParametresRoute,
+  AdminSignalementsRoute: AdminSignalementsRoute,
+  AdminStatistiquesRoute: AdminStatistiquesRoute,
+  AdminUtilisateursRoute: AdminUtilisateursRoute,
   SignalementsIdRoute: SignalementsIdRoute,
+  AdminIndexRoute: AdminIndexRoute,
   SignalementsIndexRoute: SignalementsIndexRoute,
 }
 export const routeTree = rootRouteImport

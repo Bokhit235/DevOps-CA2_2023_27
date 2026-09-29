@@ -92,6 +92,7 @@ export const fr = {
     severity: "Gravité",
     allSeverities: "Toutes gravités",
     province: "Province",
+    city: "Ville",
     allProvinces: "Toutes provinces",
     legend: "Légende :",
   },
@@ -153,24 +154,138 @@ export const fr = {
     sent: "Signalement envoyé ! Merci pour votre contribution.",
   },
   dashboard: {
-    title: "Tableau de bord",
-    subtitle: "Vue d'ensemble des signalements sur le territoire tchadien.",
+    title: "Tableau de bord Administrateur",
+    subtitle: "Gestion globale des signalements, utilisateurs et statistiques de la plateforme BATIR TCHAD.",
     restricted: "Accès restreint",
     restrictedDesc: "Ce tableau de bord est réservé aux autorités et administrateurs. Contactez un administrateur pour obtenir l'accès.",
     backHome: "Retour à l'accueil",
-    total: "Total",
-    critical: "Critiques (rouge)",
-    inProgress: "En cours",
-    resolved: "Résolus",
-    topProvinces: "Top provinces",
-    byCategory: "Par catégorie",
-    noData: "Aucune donnée",
+    total: "Total signalements",
+    critical: "Urgents / Critiques",
+    inProgress: "En cours de traitement",
+    resolved: "Signalements résolus",
+    pending: "En attente de traitement",
+    totalUsers: "Utilisateurs inscrits",
+    topProvinces: "Répartition par province",
+    byCategory: "Répartition par catégorie",
+    noData: "Aucune donnée disponible",
     reportCol: "Signalement",
     catCol: "Catégorie",
-    placeCol: "Lieu",
-    severityCol: "Gravité",
+    placeCol: "Localisation",
+    severityCol: "Priorité",
     statusCol: "Statut",
-    noReports: "Aucun signalement",
+    noReports: "Aucun signalement trouvé",
+    recentActivity: "Activité récente",
+    recentActivitySub: "Derniers signalements publiés par les citoyens",
+    allPriorities: "Toutes les priorités",
+    allProvinces: "Toutes les provinces",
+    allCategories: "Toutes les catégories",
+    allStatuses: "Tous les statuts",
+    dateCol: "Date",
+    actionsCol: "Actions",
+    manage: "Gérer",
+    refresh: "Actualiser",
+    exportData: "Exporter",
+    tabs: {
+      overview: "Vue d'ensemble",
+      reports: "Signalements",
+      users: "Utilisateurs",
+      map: "Carte d'intervention",
+      stats: "Statistiques",
+      alerts: "Notifications",
+      settings: "Paramètres",
+    },
+    users: {
+
+  title: "Gestion des utilisateurs",
+
+  userCol: "Utilisateur",
+
+  contactCol: "Contact & Lieu",
+
+  roleCol: "Rôle",
+
+  statusCol: "Statut",
+
+  active: "Actif",
+
+  blocked: "Bloqué",
+
+  reportsCol: "Signalements",
+
+  dateCol: "Inscription",
+
+  actionsCol: "Actions",
+
+  changeRole: "Changer le rôle",
+
+  citizen: "Citoyen",
+
+  authority: "Autorité publique",
+
+  admin: "Administrateur",
+
+  roleUpdated: "Rôle utilisateur mis à jour avec succès",
+
+  modalTitle: "Modifier le rôle utilisateur",
+
+  userLabel: "Utilisateur",
+
+  newRoleLabel: "Nouveau rôle de l'utilisateur",
+
+  confirmRole: "Confirmer le rôle",
+
+  updating: "Mise à jour...",
+
+},
+   
+    alerts: {
+      title: "Alertes & Signalements prioritaires",
+      desc: "Signalements classés avec la priorité critique (Rouge) nécessitant une intervention immédiate.",
+      empty: "Aucun signalement critique",
+      action: "Traiter l'incident",
+    },
+    statsSection: {
+      resolutionRate: "Taux de résolution",
+      criticalCount: "Signalements Urgents",
+      inProgressCount: "Signalements En cours",
+      officesCount: "Bureaux d'intervention",
+      byStatusTitle: "Distribution par Statut",
+      bySeverityTitle: "Distribution par Priorité",
+    },
+    settingsSection: {
+      title: "Paramètres de la plateforme",
+      desc: "Préférences de compte et langue d'affichage",
+      accountInfo: "Compte administrateur actif • BATIR TCHAD",
+      languageLabel: "Langue de la plateforme (Language)",
+      backendTitle: "Infrastructure Backend",
+      connected: "Connecté à Supabase Production (Base de données sécurisée)",
+    },
+        withdrawn: {
+      badge: "Retiré par le citoyen",
+      message: "Signalement retiré par le citoyen",
+      date: "Retiré le {{date}}",
+    },
+    modal: {
+      detailsTitle: "Détails & Gestion du signalement",
+      reportId: "Identifiant du signalement",
+      noDesc: "Aucune description.",
+      photosTitle: "Photos de l'incident",
+      location: "Localisation",
+      priority: "Priorité",
+      category: "Catégorie",
+      createdAt: "Date de création",
+      updateStatusTitle: "Mettre à jour le statut du signalement",
+      newStatusLabel: "Nouveau statut",
+      resolutionNoteLabel: "Note de résolution / Commentaire interne",
+      resolutionNotePh: "Précisez les mesures prises ou la justification du statut...",
+      saving: "Enregistrement...",
+      saveChanges: "Enregistrer les modifications",
+      cancel: "Annuler",
+    },
+    mapTitle: "Carte géolocalisée des incidents au Tchad",
+    mapPointsMapped: "Points cartographiés",
+    mapCoordinates: "Coordonnées",
+openGoogleMaps: "Ouvrir dans Google Maps",
   },
   notFound: {
     title: "Page introuvable",
@@ -201,9 +316,8 @@ export const fr = {
   },
   severities: {
     vert: "Faible",
-    jaune: "Modéré",
-    orange: "Élevé",
+    jaune: "Modérée",
+    orange: "Élevée",
     rouge: "Critique",
   },
 };
-export type Resources = typeof fr;
