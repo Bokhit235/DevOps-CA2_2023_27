@@ -1,20 +1,32 @@
 ---
-- name: Configure BATIR TCHAD server
+- name: Configure BATIR TCHAD CONNECT environment
   hosts: local
   connection: local
-  become: false
+  gather_facts: true
 
   tasks:
-    - name: Create BATIR TCHAD directory
-      file:
-        path: "{{ ansible_env.HOME }}/batir-tchad"
-        state: directory
-        mode: "0755"
 
-    - name: Create application information file
-      copy:
+
+
+
+    - name: Ensure Git is installed
+      ansible.builtin.homebrew:
+        name: git
+        state: present
+
+    - name: Create DevOps user
+      ansible.builtin.user:
+        name: batirdev
+        state: present
+        create_home: true
+      become: true
+
+    - name: Create BATIR TCHAD configuration file
+      ansible.builtin.copy:
+        dest: /tmp/batir-tchad-config.txt
         content: |
-          BATIR TCHAD CONNECT
-          Server configured with Ansible
-        dest: "{{ ansible_env.HOME }}/batir-tchad/info.txt"
-        mode: "0644"
+          Application: BATIR TCHAD CONNECT
+          Environment: DevOps
+          Managed by: Ansible
+          Project: Configuration Management
+        mode: '0644'

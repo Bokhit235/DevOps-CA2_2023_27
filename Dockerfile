@@ -1,17 +1,7 @@
-FROM node:24-alpine
+FROM nginx:alpine
 
-WORKDIR /app
+COPY dist/client /usr/share/nginx/html
 
-COPY package*.json ./
+EXPOSE 80
 
-RUN npm install -g npm@11.6.2
-
-RUN npm ci
-
-COPY . .
-
-RUN npm run build
-
-EXPOSE 8787
-
-CMD ["npx", "wrangler", "--cwd", ".output", "dev", "--ip", "0.0.0.0", "--port", "8787"]
+CMD ["nginx", "-g", "daemon off;"]
