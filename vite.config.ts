@@ -2,7 +2,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
-    base: "/",
+    base: "/DevOps-CA2_2023_27/",
   },
 
   tanstackStart: {
