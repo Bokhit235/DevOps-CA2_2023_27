@@ -9,7 +9,7 @@ Fonctionnalités principales :
 Inscription et connexion des utilisateurs.
 
 Création de profil utilisateur.
-
+dfhjhjufhujhf
 Signalement d'infrastructures avec photo, plusieurs images, description et géolocalisation GPS.
 
 Catégories : routes, ponts, écoles, centres de santé, eau, marchés et autres infrastructures publiques.
