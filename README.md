@@ -1,4 +1,4 @@
-# Bridge Chad
+# BATIR TCHAD — DevOps CA-2
 
 Je souhaite développer un projet nommé BATIR TCHAD.
 
@@ -28,47 +28,26 @@ Statistiques nationales par province, catégorie et statut.
 
 Future intégration d'intelligence artificielle pour analyser les photos et détecter automatiquement les dégâts.
 
-Technologies souhaitées :
+## Technologies
 
-Mobile : React Native
+- Mobile : React Native
+- Web : React.js
+- Backend : Firebase ou Supabase
+- Cartographie : Google Maps ou OpenStreetMap
 
-Web : React.js
+## DevOps
 
-Backend : Firebase ou Supabase
+Le projet comprend :
 
-Cartographie : Google Maps ou OpenStreetMap
+- Docker
+- Kubernetes / Minikube
+- Kubernetes Service
+- Horizontal Pod Autoscaler (HPA)
+- Prometheus
+- Grafana
+- Ansible
+- GitHub
 
-Agis comme un architecte logiciel senior et aide-moi à :
+## Live app
 
-Concevoir l'architecture complète du système.
-
-Créer la structure de la base de données.
-
-Générer le code du frontend et du backend.
-
-Proposer les API nécessaires.
-
-Développer le projet étape par étape avec explications détaillées.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://batir-tchad-connect.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/8d8a16c1-3cd2-4dab-bd0d-9c93c94afb18).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+https://batir-tchad-connect.lovable.app
